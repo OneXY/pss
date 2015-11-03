@@ -1,0 +1,11 @@
+
+<link rel="stylesheet" href="js/lightbox/css/screen.css"/>
+<link rel="stylesheet" href="js/lightbox/css/lightbox.css"/>
+<script src="js/jquery.js" type="text/javascript"></script>
+这个在jquery.js后面导入
+<script type="text/javascript" src="js/lightbox/lightbox.js"></script>
+
+
+<a class="example-image-link" href="${pic}" data-lightbox="example-1">
+	          <img class="example-image" src="${smallPic}" alt="${name}" />
+	        </a>

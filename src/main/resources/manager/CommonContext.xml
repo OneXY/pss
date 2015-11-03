@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="baseDao" class="com.onexy.pss.dao.BaseDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="baseService" abstract="true">
+		<property name="baseDao" ref="baseDao" />
+	</bean>
+	
+	<bean id="loginAction" class="com.onexy.pss.web.LoginAction" scope="prototype">
+		<property name="employeeService" ref="employeeService" />
+	</bean>
+
+	<bean id="updatePasswordAction" class="com.onexy.pss.web.UpdatePasswordAction"
+		scope="prototype">
+		<property name="employeeService" ref="employeeService" />
+	</bean>
+	
+	<bean id="leftAction" class="com.onexy.pss.web.LeftAction"
+		scope="prototype">
+		<property name="menuService" ref="menuService" />
+	</bean>
+	
+	<bean id="impAction" class="com.onexy.pss.web.ImpAction"
+		scope="prototype">
+		<property name="employeeService" ref="employeeService" />
+		<property name="departmentService" ref="departmentService" />
+	</bean>
+
+</beans>

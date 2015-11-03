@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.onexy.pss.domain">
+    <class name="SystemDictionaryType" table="systemdictionarytype">
+	    	<id name="id" type="long">
+	    			<generator class="native"/>
+	    	</id>
+	    	<property name="sn" unique="true"/>
+	    	<property name="name"/>
+	  </class>
+</hibernate-mapping>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.action.extension" value="action" />
+	<constant name="struts.custom.i18n.resources" value="app" />
+	<constant name="struts.locale" value="zh_CN" />
+
+	<package name="default" namespace="/" extends="struts-default,json-default">
+		<interceptors>
+			<interceptor name="autnInterceptor" class="com.onexy.pss.web.interceptor.AutnInterceptor" >
+				<param name="excludeActions">LoginAction,LogoutAction,ImageAction</param>
+			</interceptor>
+			<interceptor-stack name="pssStack">
+				<interceptor-ref name="autnInterceptor" />
+				<!-- 默认情况下，进行重定向之后addActionMessage("保存成功");会丢失，加载拦截器并且配置operationMode=AUTOMATIC可以再重定向之后获取 -->
+				<interceptor-ref name="store">
+					<param name="operationMode">AUTOMATIC</param>
+				</interceptor-ref>
+				<interceptor-ref name="paramsPrepareParamsStack" />
+			</interceptor-stack>
+		</interceptors>
+	
+		<default-interceptor-ref name="pssStack" />
+		
+		<global-results>
+			<result name="login">/WEB-INF/views/login.jsp</result>
+			<result name="auth">/WEB-INF/views/auth.jsp</result>
+			<result name="jsonType" type="json">
+				<param name="root">#map</param>
+				<param name="excludeNullProperties">true</param>
+			</result>
+			<result name="download" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">filename=${fileName}</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</global-results>
+		<action name="main">
+			<result>/WEB-INF/views/main.jsp</result>
+		</action>
+		<action name="right">
+			<result>/WEB-INF/views/right.jsp</result>
+		</action>
+		<action name="login_*" class="loginAction" method="{1}">
+			<result type="redirectAction">main</result>
+		</action>
+		<action name="logout" class="com.onexy.pss.web.LogoutAction"/>
+		<action name="updatePassword_*" class="updatePasswordAction"
+			method="{1}">
+			<result>/WEB-INF/views/updatePassword.jsp</result>
+		</action>
+		<!-- 验证码 -->
+		<action name="image" class="com.onexy.pss.web.ImageAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">imageStream</param>
+				<param name="bufferSize">2048</param>
+			</result>
+		</action>
+		
+		<!-- zTree -->
+		<action name="left" class="leftAction"/>
+		
+		<!-- 导入xls文件 -->
+		<action name="imp_*" class="impAction" method="{1}">
+			<result>/WEB-INF/views/imp.jsp</result>
+		</action>
+
+		<action name="*_*" class="{1}Action" method="{2}">
+			<result>/WEB-INF/views/{1}/{1}.jsp</result>
+			<result name="input" type="dispatcher">/WEB-INF/views/{1}/{1}-input.jsp</result>
+			<result name="{2}" type="dispatcher">/WEB-INF/views/{1}/{1}-{2}.jsp</result>
+			<result name="reload" type="redirectAction">
+				<param name="actionName">{1}</param>
+				<param name="baseQuery.currentPage">${baseQuery.currentPage}</param>
+				<param name="baseQuery.pageSize">${baseQuery.pageSize}</param>
+				<param name="baseQuery.name">${baseQuery.name}</param>
+				<param name="baseQuery.email">${baseQuery.email}</param>
+				<param name="baseQuery.deptId">${baseQuery.deptId}</param>
+			</result>
+		</action>
+	</package>
+
+</struts>

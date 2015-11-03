@@ -1,0 +1,183 @@
+* {
+	list-style: none; margin: 0px; padding: 0px; border: currentColor; border-image: none; font-size: 1em; text-decoration: none;
+}
+body {
+	background: rgb(238, 242, 247); font: 13px/20px "Helvetica Neue", Helvetica, Arial, sans-serif; color: rgb(83, 99, 118); font-size-adjust: none; font-stretch: normal;
+}
+a {
+	color: rgb(6, 125, 215);
+}
+a:hover {
+	text-decoration: underline;
+}
+.sprited {
+	background: url("download_sprite.png") no-repeat; line-height: 1000px; overflow: hidden; display: block;
+}
+#head {
+	background: url("top_bg.gif") repeat-x; height: 123px; padding-top: 10px; margin-bottom: 30px; display: block;
+}
+#head h1 {
+	background: url("logo.png") no-repeat; margin: 0px auto; width: 555px; height: 93px; line-height: 1000px; overflow: hidden;
+}
+#wrapper {
+	margin: 0px auto; width: 660px;
+}
+#content {
+	margin: -40px 25px 25px 0px; width: 419px; float: left;
+}
+#content p {
+	margin: 0px 0px 15px;
+}
+#demo p {
+	margin: 0px 0px 15px;
+}
+h2 {
+	margin-bottom: 15px;
+}
+ul {
+	margin-bottom: 15px;
+}
+#secondary {
+	width: 216px; float: right;
+}
+#download_latest {
+	background-position: left top; width: 196px; height: 51px; margin-bottom: 10px;
+}
+#download_latest:hover {
+	background-position: 0px -51px;
+}
+#download_latest:active {
+	background-position: 0px -102px;
+}
+#download p {
+	margin-left: 7px;
+}
+#demo {
+	width: 550px; clear: both;
+}
+#demo ul li {
+	margin-left: 18px;
+}
+.try {
+	background-position: -30px -156px; width: 93px; height: 31px;
+}
+.try:hover {
+	background-position: -30px -187px;
+}
+.try:active {
+	background-position: -30px -218px;
+}
+.white {
+	background: white; padding: 10px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+}
+table th {
+	background: rgb(223, 230, 238); padding: 3px 0px;
+}
+table td {
+	padding: 7px 5px; border-bottom-color: rgb(195, 204, 216); border-bottom-width: 1px; border-bottom-style: solid;
+}
+table tr.stripe td {
+	background: rgb(249, 251, 252);
+}
+#footer {
+	background: url("divider.png") repeat-x left top; text-align: center; color: rgb(138, 142, 146); padding-top: 20px; font-size: 0.85em; margin-top: 30px;
+}
+.share_icon {
+	background: url("socialicons.png") no-repeat left top; width: 16px; height: 16px; display: block;
+}
+#share_list {
+	list-style: none; margin: 5px auto; width: 171px; height: 16px; padding-top: 10px; border-top-color: rgb(238, 242, 247); border-top-width: 1px; border-top-style: solid;
+}
+#share_list li {
+	margin-right: 15px; float: left; display: block;
+}
+#share_list li:last-child {
+	margin-right: 0px;
+}
+#facebook {
+	background-position: -48px 0px;
+}
+#twitter {
+	background-position: -16px 0px;
+}
+#digg {
+	background-position: -64px 0px;
+}
+#reddit {
+	background-position: 0px 0px;
+}
+#stumbleupon {
+	background-position: -80px 0px;
+}
+#delicious {
+	background-position: -32px 0px;
+}
+#jivelogo {
+	background-position: -391px -40px; margin: 6px auto 12px; width: 78px; height: 38px;
+}
+#text_what {
+	background-position: -202px -175px; width: 120px; height: 19px;
+}
+#text_features {
+	background-position: -202px -216px; width: 94px; height: 17px;
+}
+#text_demonstration {
+	background-position: -202px -195px; width: 167px; height: 20px;
+}
+#text_options {
+	background-position: -431px -133px; width: 86px; height: 25px;
+}
+h2 {
+	margin-top: 50px;
+}
+#sign_up {
+	background: rgb(238, 242, 247); padding: 14px 22px; border: 1px solid rgb(83, 99, 118); border-image: none; width: 400px; display: none; position: relative; -moz-border-radius: 6px; -webkit-border-radius: 6px; -webkit-box-shadow: rgba(0, 0, 0, .6) 0px 2px 12px; -moz-box-shadow: rgba(0, 0, 0, .6) 0px 2px 12px;
+}
+#sign_up #sign_up_form {
+	margin-top: 13px;
+}
+#sign_up label {
+	color: rgb(83, 99, 118); font-size: 0.9em; margin-bottom: 10px; display: block;
+}
+#sign_up label input {
+	background-position: -201px 0px; padding: 2px 8px; width: 393px; height: 31px; line-height: 31px; font-size: 1.2em; display: block;
+}
+#see_id {
+	background-position: -202px -133px; width: 228px; height: 23px;
+}
+#left_out {
+	background-position: -202px -158px; width: 113px; height: 16px;
+}
+#sign_up_form {
+	background: url("divider.png") repeat-x left bottom; padding-bottom: 54px; margin-bottom: 12px; position: relative;
+}
+#actions {
+	height: 31px; right: 0px; bottom: 20px; float: left; position: absolute;
+}
+a.form_button {
+	width: 93px; height: 31px; margin-right: 15px; float: left;
+}
+#cancel {
+	background-position: -198px -36px;
+}
+#log_in {
+	background-position: -291px -36px;
+}
+#cancel:hover {
+	background-position: -198px -67px;
+}
+#cancel:active {
+	background-position: -198px -98px;
+}
+#log_in:hover {
+	background-position: -291px -67px;
+}
+#log_in:active {
+	background-position: -291px -98px;
+}
+#close_x {
+	background-position: -387px -102px; top: 5px; width: 24px; height: 23px; right: 5px; line-height: 1000px; overflow: hidden; display: block; position: absolute;
+}
+#usage {
+	background-position: -323px -172px; width: 67px; height: 22px;
+}
